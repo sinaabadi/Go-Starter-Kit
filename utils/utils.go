@@ -16,7 +16,8 @@ func GetEnv(key, defaultValue string) string {
 	return value
 }
 
-func FormatAndSend(context *gin.Context, res *models.Response) {
+func FormatAndSend(context *gin.Context, status int, message string, payload interface{}) {
+	res := models.NewResponse(status, message, payload)
 	responseBytes, err := json.Marshal(res)
 	if err != nil {
 		log.Printf(`Unable to marshal response => %v`, err)

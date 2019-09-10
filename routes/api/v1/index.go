@@ -2,7 +2,6 @@ package apiV1
 
 import (
 	"github.com/gin-gonic/gin"
-	"starter-kit/models"
 	"starter-kit/utils"
 )
 
@@ -10,7 +9,9 @@ func RegisterIndexRoutes(router *gin.RouterGroup, deps ...interface{}) *gin.Rout
 
 	router.GET(`/`, func(context *gin.Context) {
 		utils.FormatAndSend(context,
-			models.NewResponse(200, "Hi This is API v1 :)", nil))
+			200,
+			"Hi This is API v1 :)",
+			nil)
 	})
 
 	return router
