@@ -1,5 +1,6 @@
 {
   "port": "3000",
   "host": "localhost",
-  "appEnv": "staging"
+  "appEnv": "staging",
+  "mongoUri": "mongodb://localhost:27017"
 }

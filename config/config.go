@@ -16,10 +16,10 @@ type Config struct {
 }
 
 func (c Config) Get(key string) interface{} {
-	if envConfig[key] == nil {
-		return nil
+	var envValue string
+	if envConfig[key] != nil {
+		envValue = os.Getenv(envConfig[key].(string))
 	}
-	envValue := os.Getenv(envConfig[key].(string))
 	if len(envValue) != 0 {
 		return envValue
 	}
