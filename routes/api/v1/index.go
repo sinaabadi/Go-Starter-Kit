@@ -2,17 +2,16 @@ package apiV1
 
 import (
 	"github.com/gin-gonic/gin"
-	"net/http"
+	"starter-kit/models"
+	"starter-kit/utils"
 )
 
 func RegisterIndexRoutes(router *gin.RouterGroup, deps ...interface{}) *gin.RouterGroup {
 	router.GET(`/`, func(context *gin.Context) {
-		context.JSON(http.StatusOK, struct {
-			Status  int `json:"status"`
-			Message string `json:"message"`
-		}{
+		utils.FormatAndSend(context, models.Response{
 			Status:  200,
-			Message: "Hi ಠ_ಠ Api V1 running smoothly",
+			Message: "Hi",
+			Payload: nil,
 		})
 	})
 
