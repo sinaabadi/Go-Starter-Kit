@@ -6,7 +6,6 @@ import (
 	"log"
 	"os"
 	"starter-kit/models"
-	"time"
 )
 
 func GetEnv(key, defaultValue string) string {
@@ -17,8 +16,7 @@ func GetEnv(key, defaultValue string) string {
 	return value
 }
 
-func FormatAndSend(context *gin.Context, res models.Response) {
-	res.Timestamp = time.Now()
+func FormatAndSend(context *gin.Context, res *models.Response) {
 	responseBytes, err := json.Marshal(res)
 	if err != nil {
 		log.Printf(`Unable to marshal response => %v`, err)

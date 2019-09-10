@@ -16,7 +16,7 @@ func main() {
 
 	//Log ----------------------
 	log.SetFlags(0)
-	multiWriter := io.MultiWriter(new (utils.LogWriter))
+	multiWriter := io.MultiWriter(new(utils.LogWriter))
 	log.SetOutput(multiWriter)
 	//--------------------------
 	appConfig := config.GetConfig()
@@ -37,4 +37,3 @@ func main() {
 	}
 
 }
-

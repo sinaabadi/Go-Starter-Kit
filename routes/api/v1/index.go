@@ -7,12 +7,10 @@ import (
 )
 
 func RegisterIndexRoutes(router *gin.RouterGroup, deps ...interface{}) *gin.RouterGroup {
+
 	router.GET(`/`, func(context *gin.Context) {
-		utils.FormatAndSend(context, models.Response{
-			Status:  200,
-			Message: "Hi",
-			Payload: nil,
-		})
+		utils.FormatAndSend(context,
+			models.NewResponse(200, "Hi This is API v1 :)", nil))
 	})
 
 	return router
