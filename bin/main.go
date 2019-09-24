@@ -9,6 +9,7 @@ import (
 	"starter-kit/apps"
 	"starter-kit/config"
 	"starter-kit/constants"
+	"starter-kit/middlewares"
 	"starter-kit/utils"
 )
 
@@ -31,6 +32,7 @@ func main() {
 	port := appConfig.Get(`port`).(string)
 	engine.Static(`/public`, `public`)
 	apps.RegisterApps(engine)
+	engine.NoRoute(middlewares.NoRouteHandler)
 	err := engine.Run(fmt.Sprintf(`%v:%v`, host, port))
 	if err != nil {
 		log.Panicf(`Could not start server => %v`, err)

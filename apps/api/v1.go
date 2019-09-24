@@ -11,6 +11,7 @@ func RegisterApiV1(app *gin.RouterGroup) {
 
 	var v1Routes = map[string]func(router *gin.RouterGroup, deps ...interface{}) *gin.RouterGroup{
 		`/`: apiV1.RegisterIndexRoutes,
+		`/auth`: apiV1.RegisterAuthRoutes,
 	}
 
 	for path, routeFunction := range v1Routes {
