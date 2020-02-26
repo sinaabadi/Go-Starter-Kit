@@ -19,7 +19,6 @@ func main() {
 	log.SetFlags(0)
 	multiWriter := io.MultiWriter(new(utils.LogWriter))
 	log.SetOutput(multiWriter)
-	//--------------------------
 	appConfig := config.GetConfig()
 	appEnv := appConfig.Get(`appEnv`).(string)
 	if appEnv == constants.PRODUCTION_MODE {
