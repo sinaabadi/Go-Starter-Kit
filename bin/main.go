@@ -29,6 +29,7 @@ func main() {
 	engine.Use(gzip.Gzip(gzip.DefaultCompression))
 	host := appConfig.Get(`host`).(string)
 	port := appConfig.Get(`port`).(string)
+	utils.InitI18n()
 	engine.Static(`/public`, `public`)
 	apps.RegisterApps(engine)
 	engine.NoRoute(middlewares.NoRouteHandler)

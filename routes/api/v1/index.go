@@ -14,7 +14,7 @@ func RegisterIndexRoutes(router *gin.RouterGroup, deps ...interface{}) *gin.Rout
 			})
 			utils.FormatAndSend(context,
 				200,
-				"Hi This is API v1 :)",
+				utils.Translate("hello", nil, "en"),
 				nil)
 		})
 	return router
